@@ -1,17 +1,17 @@
 class ProductManager {
     constructor() {
-        this.products = []; // Inicializa el arreglo de productos vacío
+        this.products = []; // Inicializa el array de productos vacío
     }
 
     addProduct(title, description, price, thumbnail, code, stock) {
         const newProduct = { title, description, price, thumbnail, code, stock };
-        this.products.push(newProduct); // Agrega un nuevo producto al arreglo
+        this.products.push(newProduct); // Agrega un nuevo producto al array
     }
 
     removeProduct(code) {
         const index = this.products.findIndex((product) => product.code === code);
         if (index > -1) {
-          this.products.splice(index, 1); // Remueve un producto del arreglo
+          this.products.splice(index, 1); // Remueve un producto del array
         }
     }
 
@@ -24,15 +24,15 @@ class ProductManager {
     }
 }
 
-// Creamos un objeto para almacenar todas las instancias de ProductManager
+// objeto para almacenar todas las instancias de ProductManager
 const productManagers = {};
 
-// Creamos una función para agregar una instancia a nuestro objeto
+// funcion para agregar una instancia a mi objeto
 function addProductManager(key, instance) {
     productManagers[key] = instance;
 }
 
-// Creamos una instancia de ProductManager para "Juego de Pesas"
+// Creo una instancia de ProductManager para "Juego de Pesas"
 const pesasManager = new ProductManager();
 const pesasProduct = {
     title: 'Juego de Pesas',
@@ -45,7 +45,7 @@ const pesasProduct = {
 pesasManager.addProduct(pesasProduct.title, pesasProduct.description, pesasProduct.price, pesasProduct.thumbnail, pesasProduct.code, pesasProduct.stock);
 addProductManager(pesasProduct.code, pesasManager);
 
-// Creamos otra instancia de ProductManager para "Smartwatch"
+// otra instancia de ProductManager para "Smartwatch"
 const smartwatchManager = new ProductManager();
 const smartwatchProduct = {
     title: 'Smartwatch',
@@ -58,7 +58,7 @@ const smartwatchProduct = {
 smartwatchManager.addProduct(smartwatchProduct.title, smartwatchProduct.description, smartwatchProduct.price, smartwatchProduct.thumbnail, smartwatchProduct.code, smartwatchProduct.stock);
 addProductManager(smartwatchProduct.code, smartwatchManager);
 
-// Creamos una instancia de ProductManager para el primer producto
+// otra instancia de ProductManager para "Bicicleta"
 const productManager = new ProductManager();
 const biciProduct = {
     title: 'Bicicleta',
@@ -70,6 +70,8 @@ const biciProduct = {
 };
 productManager.addProduct(biciProduct.title, biciProduct.description, biciProduct.price, biciProduct.thumbnail, biciProduct.code, biciProduct.stock);
 addProductManager(biciProduct.code, productManager);
+
+//Imprimo por Consola
 
 console.log(productManagers['PROD001'].getProducts());
 
